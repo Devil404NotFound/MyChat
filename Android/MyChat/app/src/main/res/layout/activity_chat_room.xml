@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+    android:id="@+id/jmui_menu_title_bar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title_bar_height"
+    android:paddingLeft="@dimen/all_margin"
+    android:background="@color/my_theme_color">
+
+        <ImageButton
+            android:id="@+id/iv_return"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/btn_return_size"
+            android:layout_height="@dimen/btn_return_size"
+            android:background="@drawable/jmui_back_btn_bg"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_return"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_friend_title_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="190dp"
+                android:singleLine="true"
+                android:text="用户名"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/jmui_right_btn"
+            android:layout_width="@dimen/btn_return_size"
+            android:layout_height="@dimen/btn_return_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:layout_marginRight="@dimen/all_margin"
+            android:background="@null"
+            android:src="@drawable/jmui_chat_detail" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/chatmsg_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:divider="@null" />
+
+
+    <include layout="@layout/view_keyboard_xhs" />
+
+</LinearLayout>

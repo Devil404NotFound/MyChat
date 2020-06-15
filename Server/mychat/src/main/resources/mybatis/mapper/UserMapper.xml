@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljp.mychat.mapper.UserMapper">
+    <sql id="userAll">
+        id, mychat_id, user_name, name, gender, phone, enabled, user_face_path, description, create_time, last_online_time
+    </sql>
+    <select id="getUserById" resultType="com.ljp.mychat.entity.User" >
+        select <include refid="userAll"/> from user where id = #{id}
+    </select>
+    <select id="getUserByMychatId" resultType="com.ljp.mychat.entity.User" >
+        select * from user where mychat_id = #{mychatId}
+    </select>
+    <update id="updateUser"  parameterType="com.ljp.mychat.entity.User">
+        update user
+        <set>
+            <if test="userName != null">
+                user_name = #{userName},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="enabled != null">
+                enabled = #{enabled},
+            </if>
+            <if test="userFacePath != null">
+                user_face_path = #{userFacePath},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+            <if test="lastOnlineTime != null">
+                lastOnlineTime = #{last_online_time},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <insert id="addUser" parameterType="com.ljp.mychat.entity.User" useGeneratedKeys="true" keyProperty="id">
+        <!--insert into user (mychat_id, user_name, password, name, gender, phone, , user_face_path, description, create_time, last_online_time)
+        values (#{mychatId}, #{userName}, #{password}, #{name}, #{gender}, #{phone}, #{enabled}, #{userFacePath}, #{description}, #{createTime}, #{lastOnlineTime})-->
+        insert into user
+        <set>
+            <if test="mychatId != null">
+                mychat_id = #{mychatId},
+            </if>
+            <if test="userName != null">
+                user_name = #{userName},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="enabled != null">
+                enabled = #{enabled},
+            </if>
+            <if test="userFacePath != null">
+                user_face_path = #{userFacePath},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="lastOnlineTime != null">
+                last_online_time = #{lastOnlineTime},
+            </if>
+        </set>
+    </insert>
+    <select id="login" parameterType="com.ljp.mychat.entity.User" resultType="com.ljp.mychat.entity.User">
+        select * from user where (mychat_id = #{mychatId} or phone = #{phone}) and password = #{password}
+    </select>
+</mapper>

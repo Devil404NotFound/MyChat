@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rg_home"/>
+    <RadioGroup
+        android:id="@+id/rg_home"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_msg"
+            android:text="消息"
+            android:checked="true"
+            android:button="@null"
+            android:textColor="@drawable/tab_selector_color"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"/>
+        <RadioButton
+            android:id="@+id/rb_friend"
+            android:text="通讯录"
+            android:button="@null"
+            android:textColor="@drawable/tab_selector_color"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"/>
+        <RadioButton
+            android:id="@+id/rb_setting"
+            android:text="我的"
+            android:button="@null"
+            android:textColor="@drawable/tab_selector_color"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"/>
+    </RadioGroup>
+</RelativeLayout>
